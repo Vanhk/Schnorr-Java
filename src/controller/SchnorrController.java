@@ -1,0 +1,119 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package controller;
+
+import model.SchnorrModel;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
+public class SchnorrController {
+    private SchnorrModel model;
+    private SecureRandom random = new SecureRandom();
+
+    public SchnorrController(SchnorrModel model) {
+        this.model = model;
+        this.random = new SecureRandom();
+    }
+
+    public void generateParameters() {
+        BigInteger q, p, g;
+        int qBitLength = 160;
+        int pBitLength = 1024;
+
+        while (true) {
+            q = BigInteger.probablePrime(qBitLength, random);
+            BigInteger a = new BigInteger(pBitLength - qBitLength, random);
+            p = q.multiply(a).add(BigInteger.ONE);
+            if (p.isProbablePrime(100)) {
+                BigInteger h;
+                do {
+                    h = new BigInteger(p.bitLength() - 1, random);
+                    g = h.modPow(p.subtract(BigInteger.ONE).divide(q), p);
+                } while (g.equals(BigInteger.ONE));
+                break;
+            }
+        }
+        model.setP(p);
+        model.setQ(q);
+        model.setG(g);
+    }
+
+    public void generateKeys() {
+        BigInteger q = model.getQ();
+        BigInteger p = model.getP();
+        BigInteger g = model.getG();
+        BigInteger x = new BigInteger(q.bitLength(), random).mod(q.subtract(BigInteger.ONE)).add(BigInteger.ONE);
+        BigInteger y = g.modPow(x, p);
+        model.setX(x);
+        model.setY(y);
+    }
+
+    public BigInteger hashSHA256(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(input.getBytes());
+            return new BigInteger(1, hash);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("SHA-256 algorithm not found", e);
+        }
+    }
+
+    public BigInteger[] sign(String message) {
+        BigInteger p = model.getP();
+        BigInteger q = model.getQ();
+        BigInteger g = model.getG();
+        BigInteger x = model.getX();
+        BigInteger k;
+        do {
+            k = new BigInteger(q.bitLength(), random).mod(q.subtract(BigInteger.valueOf(2))).add(BigInteger.valueOf(2));
+        } while (k.compareTo(BigInteger.ONE) <= 0 || k.compareTo(q.subtract(BigInteger.ONE)) >= 0);
+        // Tính r = g^k mod p (không mod q ngay)
+        BigInteger r = g.modPow(k, p);
+        // Tính H(M) mod q
+        BigInteger hM = hashSHA256(message).mod(q);
+        // Tính r mod q để lấy nghịch đảo
+
+        BigInteger rInv = r.modInverse(q);
+        // Tính s = (k - x * r^-1 * H(M)) mod q
+        BigInteger s = (k.subtract(x.multiply(rInv).multiply(hM))).mod(q);
+        model.setK(k);
+        model.setR(r);
+        model.setE(hM);
+        model.setS(s);
+        model.setOriginalMessage(message);
+        return new BigInteger[]{r, s};
+    }
+
+    public boolean verify(String message, BigInteger[] signature) {
+        BigInteger p = model.getP();
+        BigInteger q = model.getQ();
+        BigInteger g = model.getG();
+        BigInteger y = model.getY();
+        BigInteger r = signature[0];
+        BigInteger s = signature[1];
+        
+         if (!message.equals(model.getOriginalMessage())) {
+            throw new IllegalArgumentException("Thông điệp đã bị thay đổi!");
+        }
+            // Kiểm tra nếu r hoặc s đã thay đổi so với lúc ký
+        if (!r.equals(model.getR()) || !s.equals(model.getS())) {
+            throw new IllegalArgumentException("Chữ ký giả mạo!");
+        }
+        BigInteger hM = hashSHA256(message).mod(q);
+
+        BigInteger rInv = r.modInverse(q);
+        
+        //BigInteger u1 = s.multiply(rInv).mod(q);
+        
+        BigInteger u2 = hM.multiply(rInv).mod(q);
+        
+        BigInteger v = g.modPow(s, p).multiply(y.modPow(u2, p)).mod(p);
+        model.setV(v);
+        
+        return v.equals(r);
+    }
+}
