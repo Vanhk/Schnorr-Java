@@ -110,7 +110,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
         jTabbedPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 51, 51), new java.awt.Color(51, 51, 255), new java.awt.Color(255, 255, 0), new java.awt.Color(204, 0, 204)));
         jTabbedPane1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jPanelsinhkhoa.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelsinhkhoa.setBackground(new java.awt.Color(255, 228, 228));
         jPanelsinhkhoa.setPreferredSize(new java.awt.Dimension(665, 460));
 
         jLabeltitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -144,7 +144,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
         jButtonXacNhan.setBackground(new java.awt.Color(51, 102, 255));
         jButtonXacNhan.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButtonXacNhan.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonXacNhan.setText("Xác nhận");
+        jButtonXacNhan.setText("Xác Nhận");
         jButtonXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonXacNhanActionPerformed(evt);
@@ -205,6 +205,18 @@ public class SchnorrJFrame extends javax.swing.JFrame {
         jPanelsinhkhoaLayout.setHorizontalGroup(
             jPanelsinhkhoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jButtonTaoKhoa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonThuCong)
+                .addGap(105, 105, 105)
+                .addComponent(jButtonXacNhan)
+                .addGap(103, 103, 103))
+            .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addComponent(jLabeltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanelsinhkhoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
@@ -226,18 +238,6 @@ public class SchnorrJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(68, Short.MAX_VALUE))
-            .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(jButtonTaoKhoa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonThuCong)
-                .addGap(105, 105, 105)
-                .addComponent(jButtonXacNhan)
-                .addGap(103, 103, 103))
-            .addGroup(jPanelsinhkhoaLayout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addComponent(jLabeltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         jPanelsinhkhoaLayout.setVerticalGroup(
             jPanelsinhkhoaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +274,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Sinh khóa", jPanelsinhkhoa);
 
-        jPaneltaochuky.setBackground(new java.awt.Color(255, 255, 255));
+        jPaneltaochuky.setBackground(new java.awt.Color(228, 255, 228));
 
         jLabeltitle2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitle2.setText("TẠO CHỮ KÝ");
@@ -428,7 +428,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tạo chữ ký", jPaneltaochuky);
 
-        jPanelkiemtra.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelkiemtra.setBackground(new java.awt.Color(227, 241, 255));
 
         jLabeltitle3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabeltitle3.setText("KIỂM TRA CHỮ KÝ");
@@ -436,7 +436,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
         jButtonXacMinh.setBackground(new java.awt.Color(51, 102, 255));
         jButtonXacMinh.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jButtonXacMinh.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonXacMinh.setText("Xác minh");
+        jButtonXacMinh.setText("Xác Minh");
         jButtonXacMinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonXacMinhActionPerformed(evt);
@@ -540,9 +540,9 @@ public class SchnorrJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonNhapFile1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
-                .addGroup(jPanelkiemtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelR1)
-                    .addComponent(jTextFieldR1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelkiemtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldR1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelR1))
                 .addGap(12, 12, 12)
                 .addGroup(jPanelkiemtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelE1)
@@ -577,7 +577,7 @@ public class SchnorrJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -727,42 +727,59 @@ public class SchnorrJFrame extends javax.swing.JFrame {
 
     private void jButtonThuCongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThuCongActionPerformed
         // TODO add your handling code here:
-
+        
         try {
-            // Lấy giá trị P và Q từ giao diện
             String pStr = jTextFieldP.getText().trim();
             String qStr = jTextFieldQ.getText().trim();
 
             if (pStr.isEmpty() || qStr.isEmpty()) {
-            JOptionPane.showMessageDialog(SchnorrJFrame.this,"Vui lòng nhập cả P và Q!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(SchnorrJFrame.this, "Vui lòng nhập cả P và Q!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             BigInteger p = new BigInteger(pStr);
             BigInteger q = new BigInteger(qStr);
 
-            // Kiểm tra P và Q có phải số nguyên tố không
+//            int qBitLength = q.bitLength();
+//            int pBitLength = p.bitLength();
+//            int minQBits = 160; 
+//            int minPBits = 1024;
+
+//            if (qBitLength < minQBits) {
+//                JOptionPane.showMessageDialog(SchnorrJFrame.this, 
+//                    "Số bit của Q (" + qBitLength + ") nhỏ hơn ngưỡng an toàn (" + minQBits + "). Tự động tăng lên " + minQBits + " bit.", 
+//                    "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+//                q = BigInteger.probablePrime(minQBits, new SecureRandom());
+//            }
+//            if (pBitLength < minPBits) {
+//                JOptionPane.showMessageDialog(SchnorrJFrame.this, 
+//                    "Số bit của P (" + pBitLength + ") nhỏ hơn ngưỡng an toàn (" + minPBits + "). Tự động tăng lên " + minPBits + " bit.", 
+//                    "Cảnh báo", JOptionPane.WARNING_MESSAGE);
+//                BigInteger a;
+//                do {
+//                    a = new BigInteger(minPBits - minQBits, new SecureRandom());
+//                    p = q.multiply(a).add(BigInteger.ONE);
+//                } while (!p.isProbablePrime(100));
+//            }
+
             if (!p.isProbablePrime(100)) {
-                JOptionPane.showMessageDialog(SchnorrJFrame.this,"P phải là số nguyên tố!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(SchnorrJFrame.this, "P phải là số nguyên tố!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             if (!q.isProbablePrime(100)) {
-                JOptionPane.showMessageDialog(SchnorrJFrame.this,"Q phải là số nguyên tố!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(SchnorrJFrame.this, "Q phải là số nguyên tố!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            // Kiểm tra Q là ước của p-1
             BigInteger pMinusOne = p.subtract(BigInteger.ONE);
             if (!pMinusOne.mod(q).equals(BigInteger.ZERO)) {
-                JOptionPane.showMessageDialog(SchnorrJFrame.this,"Q phải là ước của p-1!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(SchnorrJFrame.this, "Q phải là ước của p-1!", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            // Lưu P và Q vào model
             model.setP(p);
             model.setQ(q);
 
-            // Sinh ngẫu nhiên g (nguyên thủy modulo p)
             BigInteger g;
             BigInteger h;
             do {
@@ -771,15 +788,15 @@ public class SchnorrJFrame extends javax.swing.JFrame {
             } while (g.equals(BigInteger.ONE));
             model.setG(g);
 
-            // Sinh ngẫu nhiên x trong [0, q-1]
-            BigInteger x = new BigInteger(q.bitLength(), new SecureRandom()).mod(q);
+            BigInteger x;
+            do {
+                x = new BigInteger(q.bitLength(), new SecureRandom()).mod(q);
+            } while (x.equals(BigInteger.ZERO));
             model.setX(x);
 
-            // Tính y = g^x mod p
             BigInteger y = g.modPow(x, p);
             model.setY(y);
-            //controller.generateKeys();
-            // Cập nhật giao diện
+
             jTextFieldP.setText(p.toString());
             jTextFieldQ.setText(q.toString());
             jTextFieldG.setText(g.toString());
@@ -787,10 +804,10 @@ public class SchnorrJFrame extends javax.swing.JFrame {
             jTextFieldY.setText(y.toString());
             jTextFieldP.setEditable(false); 
             jTextFieldQ.setEditable(false); 
-            
-            JOptionPane.showMessageDialog(SchnorrJFrame.this,"Khóa tạo thủ công thành công!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+
+            showAutoClosingDialog(SchnorrJFrame.this, "Khóa tạo thủ công thành công!", "Thông báo", 2000);
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(SchnorrJFrame.this,"P hoặc Q không phải số hợp lệ!" ,"Lỗi",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(SchnorrJFrame.this, "P hoặc Q không phải số hợp lệ!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(SchnorrJFrame.this, "Lỗi: " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
@@ -804,44 +821,40 @@ public class SchnorrJFrame extends javax.swing.JFrame {
             "Text files (*.txt) | PDF files (*.pdf) | Word files (*.docx)", "txt", "pdf", "docx");
         fileChooser.setFileFilter(filter);
 
-        int result = fileChooser.showSaveDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            String filePath = selectedFile.getAbsolutePath();
-            if (!filePath.endsWith(".txt") && !filePath.endsWith(".pdf") && !filePath.endsWith(".docx")) {
-                filePath += ".txt"; // Mặc định là .txt nếu không chọn đuôi
-            }
+        // --- Lưu THÔNG ĐIỆP ---
+        JOptionPane.showMessageDialog(this, "Chọn nơi lưu THÔNG ĐIỆP");
+        int resultMsg = fileChooser.showSaveDialog(this);
+        if (resultMsg != JFileChooser.APPROVE_OPTION) return;
 
-            try {
-                String content = "Thông điệp: " + jTextAreaM.getText() + "\n" +
-                               "Tham số K: " + jTextFieldK.getText() + "\n" +
-                               "Giá trị R: " + jTextFieldR.getText() + "\n" +
-                               "Giá trị (H(M)): " + jTextFieldE.getText() + "\n" +
-                               "Giá trị S: " + jTextFieldS.getText();
+        File messageFile = fileChooser.getSelectedFile();
+        String messagePath = messageFile.getAbsolutePath();
+        if (!messagePath.matches(".*\\.(txt|pdf|docx)$")) messagePath += ".txt";
 
-                if (filePath.endsWith(".txt")) {
-                    try (PrintWriter writer = new PrintWriter(filePath)) {
-                        writer.write(content);
-                    }
-                } else if (filePath.endsWith(".pdf")) {
-                    
-                    PdfWriter pdfWriter = new PdfWriter(filePath);
-                    PdfDocument pdfDocument = new PdfDocument(pdfWriter);
-                    pdfDocument.addNewPage();
-                    Document document= new Document(pdfDocument);
-                    document.close();
-                } else if (filePath.endsWith(".docx")) {
-                    
-                    XWPFDocument document = new XWPFDocument();
-                    try (FileOutputStream out = new FileOutputStream(filePath)) {
-                        document.createParagraph().createRun().setText(content);
-                        document.write(out);
-                    }
-                }
-                showAutoClosingDialog(SchnorrJFrame.this,"Đã lưu file thành công!","Thông báo",2000);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(SchnorrJFrame.this, "Lỗi khi lưu file - " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
-            }
+        // --- Lưu CHỮ KÝ ---
+        JOptionPane.showMessageDialog(this, "Chọn nơi lưu CHỮ KÝ");
+        int resultSig = fileChooser.showSaveDialog(this);
+        if (resultSig != JFileChooser.APPROVE_OPTION) return;
+
+        File sigFile = fileChooser.getSelectedFile();
+        String sigPath = sigFile.getAbsolutePath();
+        if (!sigPath.matches(".*\\.(txt|pdf|docx)$")) sigPath += ".txt";
+
+        // Nội dung
+        String message = jTextAreaM.getText();
+        String signatureContent = "R: " + jTextFieldR.getText() + "\n" +
+                                  "S: " + jTextFieldS.getText();
+
+        try {
+            // --- Ghi THÔNG ĐIỆP ---
+            saveToFile(messagePath, message);
+
+            // --- Ghi CHỮ KÝ ---
+            saveToFile(sigPath, signatureContent);
+
+            showAutoClosingDialog(this, "Đã lưu thông điệp và chữ ký thành 2 file riêng!", "Thông báo", 2000);
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Lỗi khi lưu file - " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonLuuFileActionPerformed
 
@@ -874,45 +887,61 @@ public class SchnorrJFrame extends javax.swing.JFrame {
             "Text files (*.txt) | PDF files (*.pdf) | Word files (*.docx)", "txt", "pdf", "docx");
         fileChooser.setFileFilter(filter);
 
-        int result = fileChooser.showSaveDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser.getSelectedFile();
-            String filePath = selectedFile.getAbsolutePath();
-            if (!filePath.endsWith(".txt") && !filePath.endsWith(".pdf") && !filePath.endsWith(".docx")) {
-                filePath += ".txt"; // Mặc định là .txt nếu không chọn đuôi
-            }
+        // --- Lưu THÔNG ĐIỆP ---
+        JOptionPane.showMessageDialog(this, "Chọn nơi lưu THÔNG ĐIỆP");
+        int resultMsg = fileChooser.showSaveDialog(this);
+        if (resultMsg != JFileChooser.APPROVE_OPTION) return;
 
-            try {
-                String content = "Thông điệp: " + jTextAreaM1.getText() + "\n" +
-                               "Giá trị R: " + jTextFieldR1.getText() + "\n" +
-                               "Giá trị (H(M)): " + jTextFieldE1.getText() + "\n" +
-                               "Giá trị S: " + jTextFieldS1.getText() + "\n" +
-                               "Giá trị V: " + jTextFieldV.getText();
+        File messageFile = fileChooser.getSelectedFile();
+        String messagePath = messageFile.getAbsolutePath();
+        if (!messagePath.matches(".*\\.(txt|pdf|docx)$")) messagePath += ".txt";
 
-                if (filePath.endsWith(".txt")) {
-                    try (PrintWriter writer = new PrintWriter(filePath)) {
-                        writer.write(content);
-                    }
-                } else if (filePath.endsWith(".pdf")) {
-                    PdfWriter pdfWriter = new PdfWriter(filePath);
-                    PdfDocument pdfDocument = new PdfDocument(pdfWriter);
-                    pdfDocument.addNewPage();
-                    Document document= new Document(pdfDocument);
-                    document.close();
-                } else if (filePath.endsWith(".docx")) {
-                    XWPFDocument document = new XWPFDocument();
-                    try (FileOutputStream out = new FileOutputStream(filePath)) {
-                        document.createParagraph().createRun().setText(content);
-                        document.write(out);
-                    }
-                }
-                showAutoClosingDialog(SchnorrJFrame.this,"Đã lưu file thành công!","Thông báo",2000);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(SchnorrJFrame.this, "Lỗi khi lưu file - " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
-            }
+        // --- Lưu CHỮ KÝ ---
+        JOptionPane.showMessageDialog(this, "Chọn nơi lưu CHỮ KÝ");
+        int resultSig = fileChooser.showSaveDialog(this);
+        if (resultSig != JFileChooser.APPROVE_OPTION) return;
+
+        File sigFile = fileChooser.getSelectedFile();
+        String sigPath = sigFile.getAbsolutePath();
+        if (!sigPath.matches(".*\\.(txt|pdf|docx)$")) sigPath += ".txt";
+
+        // Nội dung
+        String message = jTextAreaM.getText();
+        String signatureContent = "R: " + jTextFieldR.getText() + "\n" +
+                                  "S: " + jTextFieldS.getText();
+
+        try {
+            // --- Ghi THÔNG ĐIỆP ---
+            saveToFile(messagePath, message);
+
+            // --- Ghi CHỮ KÝ ---
+            saveToFile(sigPath, signatureContent);
+
+            showAutoClosingDialog(this, "Đã lưu thông điệp và chữ ký thành 2 file riêng!", "Thông báo", 2000);
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Lỗi khi lưu file - " + ex.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonLuuFile1ActionPerformed
-
+    private void saveToFile(String filePath, String content) throws IOException {
+        if (filePath.endsWith(".txt")) {
+            try (PrintWriter writer = new PrintWriter(filePath)) {
+                writer.write(content);
+            }
+        } else if (filePath.endsWith(".pdf")) {
+            PdfWriter pdfWriter = new PdfWriter(filePath);
+            PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+            Document document = new Document(pdfDocument);
+            document.add(new com.itextpdf.layout.element.Paragraph(content));
+            document.close();
+        } else if (filePath.endsWith(".docx")) {
+            XWPFDocument document = new XWPFDocument();
+            try (FileOutputStream out = new FileOutputStream(filePath)) {
+                document.createParagraph().createRun().setText(content);
+                document.write(out);
+            }
+        }
+    }
     private void jButtonNhapFile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNhapFile1ActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();

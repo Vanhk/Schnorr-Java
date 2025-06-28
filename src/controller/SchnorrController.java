@@ -23,20 +23,29 @@ public class SchnorrController {
         BigInteger q, p, g;
         int qBitLength = 160;
         int pBitLength = 1024;
-
         while (true) {
             q = BigInteger.probablePrime(qBitLength, random);
-            BigInteger a = new BigInteger(pBitLength - qBitLength, random);
-            p = q.multiply(a).add(BigInteger.ONE);
-            if (p.isProbablePrime(100)) {
-                BigInteger h;
-                do {
-                    h = new BigInteger(p.bitLength() - 1, random);
-                    g = h.modPow(p.subtract(BigInteger.ONE).divide(q), p);
-                } while (g.equals(BigInteger.ONE));
-                break;
-            }
+
+            int kBitLength = pBitLength - qBitLength;
+            BigInteger k;
+            do {
+                k = new BigInteger(kBitLength, random);
+            } while (k.compareTo(BigInteger.TWO) < 0); 
+
+            p = q.multiply(k).add(BigInteger.ONE);
+
+            if (p.bitLength() != pBitLength) continue;
+            if (!p.isProbablePrime(100)) continue;
+
+            BigInteger h;
+            do {
+                h = new BigInteger(pBitLength - 1, random);
+                g = h.modPow(p.subtract(BigInteger.ONE).divide(q), p);
+            } while (g.compareTo(BigInteger.ONE) <= 0);
+
+            break;
         }
+
         model.setP(p);
         model.setQ(q);
         model.setG(g);
@@ -71,14 +80,10 @@ public class SchnorrController {
         do {
             k = new BigInteger(q.bitLength(), random).mod(q.subtract(BigInteger.valueOf(2))).add(BigInteger.valueOf(2));
         } while (k.compareTo(BigInteger.ONE) <= 0 || k.compareTo(q.subtract(BigInteger.ONE)) >= 0);
-        // Tính r = g^k mod p (không mod q ngay)
         BigInteger r = g.modPow(k, p);
-        // Tính H(M) mod q
         BigInteger hM = hashSHA256(message).mod(q);
-        // Tính r mod q để lấy nghịch đảo
 
         BigInteger rInv = r.modInverse(q);
-        // Tính s = (k - x * r^-1 * H(M)) mod q
         BigInteger s = (k.subtract(x.multiply(rInv).multiply(hM))).mod(q);
         model.setK(k);
         model.setR(r);
@@ -95,13 +100,16 @@ public class SchnorrController {
         BigInteger y = model.getY();
         BigInteger r = signature[0];
         BigInteger s = signature[1];
-        
+           StringBuilder error = new StringBuilder();
+
          if (!message.equals(model.getOriginalMessage())) {
-            throw new IllegalArgumentException("Thông điệp đã bị thay đổi!");
+        error.append("Thông điệp đã bị thay đổi! ");
         }
-            // Kiểm tra nếu r hoặc s đã thay đổi so với lúc ký
         if (!r.equals(model.getR()) || !s.equals(model.getS())) {
-            throw new IllegalArgumentException("Chữ ký giả mạo!");
+            error.append("Chữ ký giả mạo!");
+        }
+        if (error.length() > 0) {
+        throw new IllegalArgumentException(error.toString().trim());
         }
         BigInteger hM = hashSHA256(message).mod(q);
 
